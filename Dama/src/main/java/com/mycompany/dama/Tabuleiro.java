@@ -40,9 +40,9 @@ public class Tabuleiro
             
 
             // Todas as posições inicialmente começam com "-"
-            for (int linha = 1; linha < this.dimensao; linha++) {
-                for (int coluna = 1; coluna < this.dimensao; coluna++) {
-                   this.tabuleiro[linha][coluna] = "-";
+            for (int i = 1; i < this.dimensao; i++) {
+                for (int j = 1; j < this.dimensao; j++) {
+                   this.tabuleiro[i][j] = "-";
                 }
             }
        
@@ -50,8 +50,8 @@ public class Tabuleiro
    
     
     public void MostraTabuleiro(){
-        for(int i = 0; i <= 7; i++){
-            for(int j = 0; j <= 7; j++){
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
                 System.out.print(tabuleiro[i][j] + " ");
             }
             System.out.println();
