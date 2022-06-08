@@ -8,10 +8,21 @@ package com.mycompany.dama;
  *
  * @author ice
  */
-public class Interface 
+import java.util.*;
+import javax.swing.*;
+
+public class Interface extends JFrame 
 {
+    public Interface()
+    {
+        setVisible(true);
+        setTitle("====Dama====");
+        setDefaultCloseOperation(3);
+        setLayout(null);
+        setBounds(250,0,700,500);
+    }
     public static void main(String[] args) 
     {
-        
+        new Interface();
     }
 }
