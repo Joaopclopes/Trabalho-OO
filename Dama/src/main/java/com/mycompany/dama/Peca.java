@@ -12,4 +12,6 @@ public class Peca
 {
     boolean dama;
     int[][] posicao;
+    
+    /*public void mover(int)*/
 }
