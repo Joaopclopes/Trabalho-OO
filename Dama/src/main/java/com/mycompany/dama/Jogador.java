@@ -10,5 +10,22 @@ package com.mycompany.dama;
  */
 public class Jogador 
 {
-    
+    String nome;
+    long tempo_de_jogo;  // inicializa como 0 quando o jogo começa
+    int Pontuacao_recorde; 
+    Jogador(){
+        nome = "";
+    }
+    Jogador(String Name){
+        this.nome = Name;
+    }
+    public void setNome(String a){
+        this.nome = a;
+    }
+    public String getNome(Jogador A){
+        return this.nome;
+    }
+    public int getPontuacao_recorde(){
+        return this.Pontuacao_recorde;
+    }
 }
