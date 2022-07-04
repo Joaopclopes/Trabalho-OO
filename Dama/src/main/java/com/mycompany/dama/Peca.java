@@ -10,6 +10,13 @@ package com.mycompany.dama;
  */
 public class Peca 
 {
+    /*
+        int x, y;
+    boolean dama;
+    boolean eliminada;
+    
+    String peca;
+    */
     boolean dama;
     String peca;
     Jogador A = new Jogador();
