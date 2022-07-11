@@ -11,14 +11,14 @@ package com.mycompany.dama;
 public class Tabuleiro 
 {
     int dimensao = 8;
-    Peca pecas;
     
-    private static final String Alfabeto = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // util para as coordenadas
+    private static final String Alfabeto = "0ABCDEFGH"; // util para as coordenadas
     
     
     Peca tabuleiro[][] = new Peca [dimensao][dimensao];
     
-    public Tabuleiro() {          
+    public Tabuleiro() 
+    {          
 
             // espaços vazios no inicio
             this.tabuleiro[0][0].peca = " ";

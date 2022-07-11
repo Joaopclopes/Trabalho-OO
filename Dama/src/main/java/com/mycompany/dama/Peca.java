@@ -10,41 +10,46 @@ package com.mycompany.dama;
  */
 public class Peca 
 {
-    /*
-        int x, y;
+    int x, y;
     boolean dama;
     boolean eliminada;
     
     String peca;
-    */
-    boolean dama;
-    String peca;
-    Jogador A = new Jogador();
-    Tabuleiro [][]tabuleiro = new Tabuleiro[8][8];
     
-    public void MovePeca(int OrigemLinha, int OrigemColuna, int DestinoLinha, int DestinoColuna){
+    public int     getX()     {return this.x;};
+    private void   setX(int x){this.x = this.x + x;};
+    public int     getY()     {return this.y;};
+    private void   setY(int y){this.y = this.y + y;};
+    public boolean getD()     {return dama;};
+    
+    public void MovePeca(int DestinoLinha, int DestinoColuna)
+    {
         if (validaPosicao(DestinoLinha, DestinoColuna) == true)
         {
-            tabuleiro[DestinoLinha][DestinoColuna] = tabuleiro[OrigemLinha][OrigemColuna];
-            tabuleiro[OrigemLinha][OrigemColuna] = null;        
+            setX(DestinoLinha - getX());
+            setY(DestinoColuna - getY());
         }
-        else{
+        else
+        {
             System.out.println("Posição inválida!!!!");
         }
-}
-    public boolean validaPosicao(int x, int y){
-        // tentei usar uma formula pra validar uma posição na matriz
-        for(x = 0; x < 8; x++){
-            for(y = 0; y < 8; y++){
-                if( x % 2 != 0 && y % 2 != 0){
-                    return true;
-                } if(x % 2 == 0 && y % 2 == 0){
-                    return true;
-                }                
-            }
-    }
-        return false;
     }
     
-    /*public void mover(int)*/
+    private boolean validaPosicao(int x_des, int y_des)
+    {
+        if(getX() + x_des < 8 && getX() + x_des >= 0 && getY() + y_des < 8 && getY() + y_des >= 0)
+        {
+            if(x_des == getX()+1 && y_des == getY()+1 || x_des == getX()-1 && y_des == getY()+1)
+                return true;
+            
+            else if(x_des == getX()+1 && y_des == getY()-1 || x_des == getX()-1 && y_des == getY()-1 && getD() == true)
+                return true;
+            
+            else
+                return false;
+        }
+        
+        else
+            return false;
+    }
 }
