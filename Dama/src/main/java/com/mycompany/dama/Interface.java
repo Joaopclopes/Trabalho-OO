@@ -13,25 +13,13 @@ import javax.swing.*;
 
 public class Interface extends JFrame 
 {
+    private Jogador   jogador_A,jogador_B;
+    private Tabuleiro tabuleiro;
+    
     JButton[] bt = new JButton[64];
+    
     public Interface()
     {
-        setVisible(true);
-        setTitle("====Dama====");
-        setDefaultCloseOperation(2);
-        setLayout(null);
-        setBounds(250,100,700,700);
-        int cont = 0;
-        for(int i = 0; i < 8; i++)
-        {
-            for(int j = 0; j < 8; j++)
-            {
-                bt[cont] = new JButton();
-                add(bt[cont]);
-                bt[cont].setBounds((60 * i) + 100,(60 * j) + 100, 60 ,60);
-                cont++;
-            }
-        }
     }
     public static void main(String[] args) 
     {

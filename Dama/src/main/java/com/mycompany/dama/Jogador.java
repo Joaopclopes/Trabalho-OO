@@ -17,7 +17,8 @@ public class Jogador
     
     
     public String getNome(Jogador A){return this.nome;}
-    private void  setNome(String a){this.nome = a;}
+    private void  setNome(String a) {this.nome = a;}
+    public  Peca  getPeca(int i)    {return this.pecas[i];};
     public int    getPontuacao_recorde(){return this.Pontuacao_recorde;}
     
     Jogador(String Name)

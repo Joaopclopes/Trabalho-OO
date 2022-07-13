@@ -38,31 +38,55 @@ public class Tabuleiro
             
 
             // Todas as posições inicialmente começam com "-"
-            for (int i = 1; i < this.dimensao; i++) {
+        for (int i = 1; i < this.dimensao; i++) {
                 for (int j = 1; j < this.dimensao; j++) {
                    this.tabuleiro[i][j].peca = " ";
                 }
-            }
-       
         }
+    }
     
-    // inicializa as posições
-    public void InicializaTabuleiro(String tabuleiro[][]){
-        for(int i = 0; i < (dimensao / 2); i++){
-            for(int j = 0; j < (dimensao/ 2); j++){
-                if(i % 2 != 0 && j % 2 == 0){
-                    this.tabuleiro[i][j].peca.equals("X");
+    public void InicializaTabuleiro(Jogador A,Jogador B)
+    {
+        int A_pecaIni =  0,B_pecaIni = 0;
+        
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++)
+            {
+                while(i < 2)
+                {
+                    if(j%2 != 0 && i%2 == 0)
+                    {
+                        A.getPeca(A_pecaIni).setX(j);
+                        A.getPeca(A_pecaIni).setY(i);
+                        A_pecaIni++;
+                    }
+                    else if(j%2 == 0)
+                    {
+                        A.getPeca(A_pecaIni).setX(j);
+                        A.getPeca(A_pecaIni).setY(i);
+                        A_pecaIni++;
+                    }
+                                
                 }
-                }
-            }
-        for(int i = 6; i < dimensao; i++){
-            for(int j = 0; j < (dimensao/2); j++){
-                if(i % 2 == 0 && j % 2 != 0){
-                    this.tabuleiro[i][j].peca.equals("W");
+                
+                while(i >= 5 && i < 8)
+                {
+                    if(j%2 != 0 && i%2 == 0)
+                    {
+                        B.getPeca(B_pecaIni).setX(j);
+                        B.getPeca(B_pecaIni).setY(i);
+                        B_pecaIni++;
+                    }
+                    else if(j%2 == 0)
+                    {
+                        B.getPeca(B_pecaIni).setX(j);
+                        B.getPeca(B_pecaIni).setY(i);
+                        B_pecaIni++;
+                    }
                 }
             }
         }
-        
     }
     public void MostraTabuleiro(){
         for(int i = 0; i < 8; i++){
