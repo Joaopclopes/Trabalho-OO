@@ -1,21 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.dama;
 
-/**
- *
- * @author ice
- */
+import javax.swing.JButton;
+
 import java.util.*;
 
-public class Peca 
+public class Peca extends JButton 
 {
+
+    char cor = 'P';
     int x, y;
     boolean dama;
     boolean eliminada;
-    List<Movimento> movimentos;
+    List<Movimento> movimentos; // lista para armazenar possíveis movimentos??
+    Peca tabuleiro[][] = new Peca [8][8];
     
     String peca;
     
@@ -29,6 +26,7 @@ public class Peca
     {
         movimentos = new ArrayList<Movimento>();
     }
+    
     
     public void MovePeca(int DestinoLinha, int DestinoColuna)
     {
@@ -62,4 +60,20 @@ public class Peca
         else
             return false;
     }
+    public void AlternaVez() {
+		if(cor == 'V') {
+			cor = 'P';
+		}else {
+			cor = 'V';
+		}
+	}
+    public void possivel_dama() {
+            for (int j = 0; j < this.tabuleiro[0].length; j++) {
+                    if (tabuleiro[0][getY()].cor == 'P') {
+                            tabuleiro[0][j].dama = true;
+                    } else if (tabuleiro[7][getX()].cor == 'V') {
+                            tabuleiro[7][j].dama = false;
+                    }
+		}
+	}    
 }
