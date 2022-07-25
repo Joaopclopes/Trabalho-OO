@@ -3,6 +3,7 @@ package dama.model;
 
 import dama.model.Jogador;
 import javax.swing.JFrame;
+import javax.swing.*;
 /**
  *
  * @author ice
@@ -13,6 +14,7 @@ public class Tabuleiro
     Casa  casas[][];
    
    int getDimensao(){return dimensao;};
+   JButton getC(int i,int j) {return casas[i][j];};
     
     public Tabuleiro() 
     {
@@ -42,14 +44,12 @@ public class Tabuleiro
                 {
                     if(j%2 != 0 && i%2 == 0)
                     {
-                        A.getPeca(A_pecaIni).setX(j);
-                        A.getPeca(A_pecaIni).setY(i);
+                        A.getPeca(A_pecaIni).getPosicao().set(j, i);
                         A_pecaIni++;
                     }
                     else if(j%2 == 0)
                     {
-                        A.getPeca(A_pecaIni).setX(j);
-                        A.getPeca(A_pecaIni).setY(i);
+                        A.getPeca(A_pecaIni).getPosicao().set(j, i);
                         A_pecaIni++;
                     }
                                 
@@ -59,28 +59,26 @@ public class Tabuleiro
                 {
                     if(j%2 != 0 && i%2 == 0)
                     {
-                        B.getPeca(B_pecaIni).setX(j);
-                        B.getPeca(B_pecaIni).setY(i);
+                        B.getPeca(B_pecaIni).getPosicao().set(j, i);
                         B_pecaIni++;
                     }
                     else if(j%2 == 0)
                     {
-                        B.getPeca(B_pecaIni).setX(j);
-                        B.getPeca(B_pecaIni).setY(i);
+                        B.getPeca(B_pecaIni).getPosicao().set(j, i);
                         B_pecaIni++;
                     }
                 }
             }
         }
     }
-    public void MostraTabuleiro(){
-        for(int i = 0; i < 8; i++){
-            for(int j = 0; j < 8; j++){
-                System.out.print(tabuleiro[i][j].peca + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("******************FIM DO TABULEIRO******************");
-    }
+//    public void MostraTabuleiro(){
+//        for(int i = 0; i < 8; i++){
+//            for(int j = 0; j < 8; j++){
+//                System.out.print(tabuleiro[i][j].peca + " ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println("******************FIM DO TABULEIRO******************");
+//    }
         
 }

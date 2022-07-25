@@ -25,8 +25,19 @@ public class Peca extends Casa
     {
         movimentos = new ArrayList<Movimento>();
         possiveis = new ArrayList<Posicao>();
+        posicao   = new Posicao();
     }
     
+//    public void Ppossiveis()
+//    {
+//        for(int i = 0; i < 8; i++)
+//        {
+//            for(int j = 0; j < 8; j++)
+//            {
+//                if( i == j && getD() == true || i == getPosicao().getY()  )
+//            }
+//        }
+//    }
     
     public void MovePeca(Posicao Destino)
     {
@@ -67,13 +78,13 @@ public class Peca extends Casa
 			cor = 'V';
 		}
 	}
-    public void possivel_dama() {
-            for (int j = 0; j < this.tabuleiro[0].length; j++) {
-                    if (tabuleiro[0][getY()].cor == 'P') {
-                            tabuleiro[0][j].dama = true;
-                    } else if (tabuleiro[7][getX()].cor == 'V') {
-                            tabuleiro[7][j].dama = false;
-                    }
-		}
-	}    
+//    public void possivel_dama() {
+//            for (int j = 0; j < this.tabuleiro[0].length; j++) {
+//                    if (tabuleiro[0][getY()].cor == 'P') {
+//                            tabuleiro[0][j].dama = true;
+//                    } else if (tabuleiro[7][getX()].cor == 'V') {
+//                            tabuleiro[7][j].dama = false;
+//                    }
+//		}
+//	}    
 }

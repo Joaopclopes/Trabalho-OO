@@ -17,9 +17,13 @@ public class Posicao
         this.x = x;
         this.y = y;
     }
+    public Posicao()
+    {
+    }
     
     void setX(int i){this.x = i;};
     int  getX()     {return this.x;};
     void setY(int i){this.y = i;};
     int  getY()     {return this.y;};
+    void set(int i, int j){this.x = i; this.y = j;};
 }

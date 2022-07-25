@@ -28,46 +28,61 @@ public class Interface extends JFrame
 
     int ORDEM = 8;
     
+    JButton[] bt = new JButton[64];
     public Interface()
     {
         this.painel = new JPanel();
-        tab = new Tabuleiro();
-        tab.InicializaTabuleiro( jogador_A, jogador_B);
-        tab.MostraTabuleiro();
-    }
-    
-    public void desenha(){
+//        tab = new Tabuleiro();
+//        tab.InicializaTabuleiro( jogador_A, jogador_B);
         
-        painel.setLayout(new GridLayout(ORDEM, ORDEM));
-        for (int i = 0; i < ORDEM; i++) {
-            for (int j = 0; j < ORDEM; j++) {
-                Peca peca = new Peca();
-                peca.setX(i);
-                peca.setY(j);
-                
-//                casa.addActionListener(new Jogar(campo));
-                //peca.addMouseListener(new Jogar(tab, this));
-                
-                peca.setPreferredSize(new Dimension(50, 50));
-                peca.setBorder(BorderFactory.createLineBorder(Color.black));
-                painel.add(peca);
+        setVisible(true);
+        setTitle("Dama");
+        setDefaultCloseOperation(3);
+        setLayout(null);
+        setBounds(250,100,700,500);
+        int count = 0;
+        for(int i = 0; i < ORDEM; i++)
+        {
+            for(int j = 0; j < ORDEM; j++)
+            {
+                bt[count] = new JButton();
+                add(bt[count]);
+                bt[count].setBounds((100 * i) + 50,(100 * j) + 50,95,95);
+                count++;
             }
         }
-        
-        this.add(painel);
-        this.setVisible(true);
-        this.setSize(500,500);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.repaint();
-        this.pack();
     }
+    
+//    public void desenha(){
+//        
+//        painel.setLayout(new GridLayout(ORDEM, ORDEM));
+//        
+//        for (int i = 0; i < ORDEM; i++)
+//        {
+//            for (int j = 0; j < ORDEM; j++)
+//            {
+//                add
+////                casa.addActionListener(new Jogar(campo));
+//                //peca.addMouseListener(new Jogar(tab, this));
+//                
+//                peca.setPreferredSize(new Dimension(50, 50));
+//                peca.setBorder(BorderFactory.createLineBorder(Color.black));
+//                painel.add(peca);
+//            }
+//        }
+//        
+//        this.add(painel);
+//        this.setVisible(true);
+//        this.setSize(500,500);
+//        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//        this.repaint();
+//        this.pack();
+//    }
     
     
     public static void main(String[] args) 
     {
         Interface jogo = new Interface();
-        
-        jogo.desenha();
         
     }
 }
