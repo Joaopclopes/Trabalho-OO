@@ -8,22 +8,22 @@ package dama.model;
  *
  * @author ice
  */
+import java.util.*;
 public class Jogador 
 {
     String nome;
     long   tempo_de_jogo;  // inicializa como 0 quando o jogo começa
     int    Pontuacao_recorde;
-    Peca   pecas[];
+    List<Peao> pecas;
     
     
     public String getNome(Jogador A){return this.nome;}
     private void  setNome(String a) {this.nome = a;}
-    public  Peca  getPeca(int i)    {return this.pecas[i];};
+    public  Peao  getPeca(int i)    {return this.pecas.get(i);};
     public int    getPontuacao_recorde(){return this.Pontuacao_recorde;}
     
-    Jogador(String Name)
+    public Jogador()
     {
-        setNome(Name);
-        pecas = new Peca[12];
+        pecas = new ArrayList<>();
     }
 }

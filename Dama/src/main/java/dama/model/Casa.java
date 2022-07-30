@@ -10,11 +10,33 @@ package dama.model;
  */
 
 import javax.swing.JButton;
+import java.util.*;
 public class Casa extends JButton
 {
     private
     Posicao posicao;
-    boolean preto = false;
+    boolean comPeca;
+    Peca peca;
+    List<Casa> casass;
     
-    void setPreto(boolean a){this.preto = a;};
+    public Posicao getPosicao(){return this.posicao;};
+    public Peca getPeca(){return peca;};
+    
+    public Casa(int i,int j,List<Casa> casas)
+    {
+        posicao = new Posicao(i,j);
+        comPeca = false;
+        peca    = null;
+        casass  = casas;
+    }
+    
+    public Casa getCasa(int x,int y)
+    {
+        for(Casa i : casass)
+        {
+            if(i.getX() == x && i.getY() == y)
+                return i;
+        }
+        return null;
+    }
 }

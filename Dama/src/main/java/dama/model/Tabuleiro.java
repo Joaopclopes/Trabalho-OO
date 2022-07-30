@@ -2,34 +2,48 @@ package dama.model;
 
 
 import dama.model.Jogador;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.*;
+import java.util.*;
 /**
  *
  * @author ice
  */
-public class Tabuleiro
+public class Tabuleiro extends JFrame
 {
     final int dimensao = 8;
-    Casa  casas[][];
+    List<Casa> casas;
    
    int getDimensao(){return dimensao;};
-   JButton getC(int i,int j) {return casas[i][j];};
     
     public Tabuleiro() 
     {
-        this.casas = new Casa[8][8];
-        
-        for(int i = 0;i < getDimensao();i++)
+        casas = new ArrayList<>();
+        setVisible(true);
+        setTitle("Dama");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(null);
+        setResizable(false);
+        setBounds(250,100,815,840);
+        int count = 0;
+        for(int i = 0; i < 8; i++)
         {
-            for(int j = 0;i < getDimensao();i++)
+            for(int j = 0; j < 8; j++)
             {
-                if((j%2 != 0 && i%2 == 0) || (j%2 == 0 && i%2 != 0))
-                    casas[i][j].setPreto(true);
-                    
+                System.out.println("aqui.");
+                Casa casa = new Casa(j,i,casas);
+                if((i+j)% 2 == 0)
+                    casa.setBackground(Color.white);
+                else
+                    casa.setBackground(Color.black);
+                
+                add(casa);
+                casas.add(casa);
+                casas.get(count).setBounds((100 * i),(100 * j),95,95);
+                count++;
             }
         }
-        
     }
     
     public void InicializaTabuleiro(Jogador A,Jogador B)
