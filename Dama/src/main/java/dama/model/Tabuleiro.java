@@ -64,15 +64,9 @@ public class Tabuleiro extends JFrame
                     if(j%2 != 0 && i%2 == 0)
                     {
                         Peao peca = new Peao();
-                        getCasa(j,i).setPeca(peca);
+                        getCasa(i,j).setPeca(peca);
                         jogadorA.getPeca().add(peca);
-                        ApecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        Peao peca = new Peao();
-                        getCasa(j,i).setPeca(peca);
-                        jogadorA.getPeca().add(peca);
+                        peca.InserePeca(i, j);
                         ApecaIni++;
                     }
                                 
@@ -80,41 +74,22 @@ public class Tabuleiro extends JFrame
                 
                 while(i >= 5 && i < 8)
                 {
-                    if(j%2 != 0 && i%2 == 0)
+                   
+                    if(j%2 == 0 && i%2 != 0)
                     {
                         Peao peca = new Peao();
                         getCasa(j,i).setPeca(peca);
                         jogadorB.getPeca().add(peca);
-                        BpecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        Peao peca = new Peao();
-                        getCasa(j,i).setPeca(peca);
-                        jogadorB.getPeca().add(peca);
+                        peca.InserePeca(i, j);
                         BpecaIni++;
                     }
                 }
             }
         }
-        atualiza();
+
     }
     
-    public void atualiza()
-    {
-        for(int i = 0;i < 8;i++)
-        {
-            for(int j = 0;j < 8;j++)
-            {
-                if(getCasa(j,i).getcomPeca())
-                {
-                    Icon icon = new ImageIcon("pecapreta.png");
-                    getCasa(j,i).setIcon(icon);
-                }
-            }
-        }
-    }
-    
+
     public Casa getCasa(int x,int y)
     {
         for(Casa i : casas)
