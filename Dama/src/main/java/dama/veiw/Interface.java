@@ -21,7 +21,6 @@ import javax.swing.*;
 
 public class Interface extends JFrame 
 {
-    private Jogador   jogadorA,jogadorB;
     private Tabuleiro tab;
 
     int ORDEM = 8;
@@ -30,15 +29,11 @@ public class Interface extends JFrame
     {
         tab = new Tabuleiro();
     }
-    public void iniciar()
-    {
-        jogadorA = new Jogador();
-    }
-    
+    public  Tabuleiro getTab(){return tab;}
     
     public static void main(String[] args) 
     {
         Interface jogo = new Interface();
-        
+        jogo.getTab().InicializaTabuleiro();
     }
 }

@@ -14,7 +14,6 @@ public class Peao extends Peca
     
     public Peao()
     {
-        posicao   =  getPosicao();
     }
     
     public void MovePeca(Posicao Destino)
@@ -37,5 +36,5 @@ public class Peao extends Peca
             return true;
         else
             return false;
-        }
     }
+}    

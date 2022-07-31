@@ -14,13 +14,14 @@ import java.util.*;
 public class Casa extends JButton
 {
     private
-    Posicao posicao;
     boolean comPeca;
+    Posicao posicao;
     Peca peca;
     List<Casa> casass;
     
     public Posicao getPosicao(){return this.posicao;};
-    public Peca getPeca(){return peca;};
+    public Peca    getPeca()   {return peca;};
+    public boolean getcomPeca(){return comPeca;};
     
     public Casa(int i,int j,List<Casa> casas)
     {
@@ -38,5 +39,11 @@ public class Casa extends JButton
                 return i;
         }
         return null;
+    }
+    
+    public void setPeca(Peca pecaD)
+    {
+        peca = pecaD;
+        this.comPeca = true;
     }
 }

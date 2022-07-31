@@ -14,12 +14,13 @@ public class Jogador
     String nome;
     long   tempo_de_jogo;  // inicializa como 0 quando o jogo começa
     int    Pontuacao_recorde;
-    List<Peao> pecas;
+    List<Peca> pecas;
     
     
     public String getNome(Jogador A){return this.nome;}
     private void  setNome(String a) {this.nome = a;}
-    public  Peao  getPeca(int i)    {return this.pecas.get(i);};
+    public  Peca  getPeca(int i)    {return this.pecas.get(i);};
+    public  List<Peca>  getPeca()    {return this.pecas;};
     public int    getPontuacao_recorde(){return this.Pontuacao_recorde;}
     
     public Jogador()
