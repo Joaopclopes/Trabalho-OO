@@ -1,52 +1,59 @@
-package com.mycompany.dama;
+package dama.model;
 
 
+import dama.model.Jogador;
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.JFrame;
+import javax.swing.*;
+import java.util.*;
 /**
  *
  * @author ice
  */
-public class Tabuleiro
+public class Tabuleiro extends JFrame
 {
-    int dimensao = 8;
-    
-    
-    private static final String Alfabeto = "0ABCDEFGH"; // util para as coordenadas
-    
-    
-    Peca tabuleiro[][] = new Peca [dimensao][dimensao];
+    final int dimensao = 8;
+    List<Casa> casas;
+    private Jogador   jogadorA,jogadorB;
+   
+   int getDimensao(){return dimensao;};
     
     public Tabuleiro() 
-    {          
-
-            // espaços vazios no inicio
-            this.tabuleiro[0][0].peca = " ";
-
-            for(int j = 1; j < this.dimensao; j++) {
-                this.tabuleiro[0][j].peca = String.valueOf(Alfabeto.charAt(j));
+    {
+        casas = new ArrayList<>();
+        
+        setVisible(true);
+        setTitle("Dama");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(null);
+        setResizable(false);
+        setBounds(250,100,815,840);
+        int count = 0;
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++)
+            {
+                Casa casa = new Casa(j,i,casas);
+                if((i+j)% 2 == 0)
+                    casa.setBackground(Color.white);
+                else
+                    casa.setBackground(Color.black);
+                
+                add(casa);
+                casas.add(casa);
+                casas.get(count).setBounds((100 * i),(100 * j),95,95);
+                count++;
             }
-
-            for(int i = 1; i < this.dimensao; i++) {
-                String numeroDaLinha = "";
-
-                // evita os espaços grudados
-                numeroDaLinha += String.valueOf(i) + " ";
-
-                this.tabuleiro[i][0].peca = numeroDaLinha;
-            }          
-            
-
-            // Todas as posições inicialmente começam com "-"
-        for (int i = 1; i < this.dimensao; i++) {
-                for (int j = 1; j < this.dimensao; j++) {
-                   this.tabuleiro[i][j].peca = " ";
-                }
         }
     }
     
-    public void InicializaTabuleiro(Jogador A,Jogador B)
+    public void InicializaTabuleiro()
     {
-        int A_pecaIni =  0,B_pecaIni = 0;
+        this.jogadorA = new Jogador();
+        this.jogadorB = new Jogador();
+        
+        int ApecaIni =  0,BpecaIni = 0;
         
         for(int i = 0; i < 8; i++)
         {
@@ -56,45 +63,40 @@ public class Tabuleiro
                 {
                     if(j%2 != 0 && i%2 == 0)
                     {
-                        A.getPeca(A_pecaIni).setX(j);
-                        A.getPeca(A_pecaIni).setY(i);
-                        A_pecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        A.getPeca(A_pecaIni).setX(j);
-                        A.getPeca(A_pecaIni).setY(i);
-                        A_pecaIni++;
+                        Peao peca = new Peao();
+                        getCasa(i,j).setPeca(peca);
+                        jogadorA.getPeca().add(peca);
+                        peca.InserePeca(i, j);
+                        ApecaIni++;
                     }
                                 
                 }
                 
                 while(i >= 5 && i < 8)
                 {
-                    if(j%2 != 0 && i%2 == 0)
+                   
+                    if(j%2 == 0 && i%2 != 0)
                     {
-                        B.getPeca(B_pecaIni).setX(j);
-                        B.getPeca(B_pecaIni).setY(i);
-                        B_pecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        B.getPeca(B_pecaIni).setX(j);
-                        B.getPeca(B_pecaIni).setY(i);
-                        B_pecaIni++;
+                        Peao peca = new Peao();
+                        getCasa(j,i).setPeca(peca);
+                        jogadorB.getPeca().add(peca);
+                        peca.InserePeca(i, j);
+                        BpecaIni++;
                     }
                 }
             }
         }
+
     }
-    public void MostraTabuleiro(){
-        for(int i = 0; i < 8; i++){
-            for(int j = 0; j < 8; j++){
-                System.out.print(tabuleiro[i][j].peca + " ");
-            }
-            System.out.println();
+    
+
+    public Casa getCasa(int x,int y)
+    {
+        for(Casa i : casas)
+        {
+            if(i.getX() == x && i.getY() == y)
+                return i;
         }
-        System.out.println("******************FIM DO TABULEIRO******************");
+        return null;
     }
-        
 }
