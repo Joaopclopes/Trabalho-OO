@@ -33,15 +33,16 @@ public class Tabuleiro extends JFrame
             for(int j = 0; j < 8; j++)
             {
                 if((i+j)% 2 == 0){
-                    casas[j][i] = new Casa(j, i);
-                    casas[j][i].setBackground(Color.white);
+                    casas[i][j] = new Casa(i, j);
+                    casas[i][j].setBackground(Color.white);                   
+                    
                 }
                 else{
-                    casas[j][i] = new Casa(j, i);
-                    casas[j][i].setBackground(Color.black);
+                    casas[i][j] = new Casa(i, j);
+                    casas[i][j].setBackground(Color.black);
                 }
-                add(casas[j][i]);
-                casas[j][i].setBounds((100 * i),(100 * j),95,95);
+                add(casas[i][j]);
+                casas[i][j].setBounds((100 * i),(100 * j),95,95);
                 count++;
             }
         }
@@ -52,51 +53,33 @@ public class Tabuleiro extends JFrame
         this.jogadorA = new Jogador();
         this.jogadorB = new Jogador();
         
-        int ApecaIni =  0,BpecaIni = 0;
+        int ApecaIni =  0, BpecaIni = 0;
         
         for(int i = 0; i < 8; i++)
         {
             for(int j = 0; j < 8; j++)
             {
-                if(i < 3)
+                if(j < 3) // aqui uso j como i ( coluna com linha)
                 {
-                    if(j%2 != 0 && i%2 == 0)
-                    {
-                        Peao peca = new Peao(j,i);
-                        getCasa(j,i).setPeca(peca);
+                    if((i+j)% 2 != 0){
+                        Peao peca = new Peao(i,j);
+                        getCasa(i,j).setPeca(peca);
                         jogadorA.getPeca().add(peca);
                         ApecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        Peao peca = new Peao(j,i);
-                        getCasa(j,i).setPeca(peca);
+                    }                  
+                }
+                if(j >= 5 && j < 8){
+                    if((i+j)% 2 != 0){
+                        Peao peca = new Peao(i,j);
+                        getCasa(i,j).setPeca(peca);
                         jogadorA.getPeca().add(peca);
                         ApecaIni++;
-                    }
-                                
+                    } 
                 }
                 
-                else if(i >= 5 && i < 8)
-                {
-                    if(j%2 != 0 && i%2 == 0)
-                    {
-                        Peao peca = new Peao(j,i);
-                        getCasa(j,i).setPeca(peca);
-                        jogadorB.getPeca().add(peca);
-                        BpecaIni++;
-                    }
-                    else if(j%2 == 0)
-                    {
-                        Peao peca = new Peao(j,i);
-                        getCasa(j,i).setPeca(peca);
-                        jogadorB.getPeca().add(peca);
-                        BpecaIni++;
-                    }
-                }
-            }
         }
         atualiza();
+    }
     }
     
     public void atualiza()
@@ -105,7 +88,7 @@ public class Tabuleiro extends JFrame
         {
             for(int j = 0;j < 8;j++)
             {
-                if(getCasa(j,i).getcomPeca())
+                if(getCasa(i,j).getcomPeca())
                 {
                     getCasa(i,j).setIcon(new ImageIcon("./imagens/pecapreta.png"));
                 }
