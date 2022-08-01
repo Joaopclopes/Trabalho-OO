@@ -1,0 +1,8 @@
+dama/model/Peao.class
+dama/control/Movimento.class
+dama/model/Tabuleiro.class
+dama/model/Posicao.class
+dama/model/Jogador.class
+dama/veiw/Interface.class
+dama/model/Casa.class
+dama/model/Peca.class

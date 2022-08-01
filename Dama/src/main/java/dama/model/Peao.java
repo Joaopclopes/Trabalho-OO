@@ -9,18 +9,19 @@ public class Peao extends Peca
 {
     boolean eliminada;
     List<Movimento> movimentos;
-    
-    String peca;
-    
-    public Peao()
+
+    public Peao(int i, int j)
     {
+        super(i, j);
     }
+    
+    
     
     public void MovePeca(Posicao Destino)
     {
         if (validaPosicao(Destino) == true)
         {
-            posicao = getCasa(Destino.getX(),Destino.getY()).getPosicao();
+//            posicao = 
             Movimento movimento = new Movimento(getPosicao(),Destino);
             movimentos.add(movimento);
         }

@@ -16,28 +16,47 @@ public class Dama extends Peca
 {
     List<Posicao> possiveis;
     List<Movimento> movimentos;
-    
-    public Dama()
+
+    public Dama(int i, int j)
     {
+        super(i, j);
+        
         possiveis = new ArrayList<>();
         
-        for(int i = 0;i < 8;i++)
+        for(int x = 0;x < 8;x++)
         {
-            for(int j = 0;j < 8;j++)
+            for(int y = 0;y < 8;y++)
             {
-                if(i - getPosicao().getY() == j - getPosicao().getX())
+                if(x - getPosicao().getY() == x - getPosicao().getX())
                 {
-                    Posicao posicao = new Posicao(j,i);
+                    Posicao posicao = new Posicao(y,x);
                     possiveis.add(posicao);
                 }
             }
         }
     }
+    
+//    public Dama()
+//    {
+//        possiveis = new ArrayList<>();
+//        
+//        for(int i = 0;i < 8;i++)
+//        {
+//            for(int j = 0;j < 8;j++)
+//            {
+//                if(i - getPosicao().getY() == j - getPosicao().getX())
+//                {
+//                    Posicao posicao = new Posicao(j,i);
+//                    possiveis.add(posicao);
+//                }
+//            }
+//        }
+//    }
     public void MovePeca(Posicao Destino)
     {
         if (validaPosicao(Destino) == true)
         {
-            posicao = getCasa(Destino.getX(),Destino.getY()).getPosicao();
+//            posicao = getCasa(Destino.getX(),Destino.getY()).getPosicao();
             Movimento movimento = new Movimento(getPosicao(),Destino);
             movimentos.add(movimento);
         }

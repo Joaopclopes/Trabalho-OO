@@ -12,14 +12,14 @@ import java.util.*;
 public class Tabuleiro extends JFrame
 {
     final int dimensao = 8;
-    List<Casa> casas;
+    Casa casas[][];
     private Jogador   jogadorA,jogadorB;
    
    int getDimensao(){return dimensao;};
     
     public Tabuleiro() 
     {
-        casas = new ArrayList<>();
+        casas = new Casa[8][8];
         
         setVisible(true);
         setTitle("Dama");
@@ -32,15 +32,16 @@ public class Tabuleiro extends JFrame
         {
             for(int j = 0; j < 8; j++)
             {
-                Casa casa = new Casa(j,i,casas);
-                if((i+j)% 2 == 0)
-                    casa.setBackground(Color.white);
-                else
-                    casa.setBackground(Color.black);
-                
-                add(casa);
-                casas.add(casa);
-                casas.get(count).setBounds((100 * i),(100 * j),95,95);
+                if((i+j)% 2 == 0){
+                    casas[j][i] = new Casa(j, i);
+                    casas[j][i].setBackground(Color.white);
+                }
+                else{
+                    casas[j][i] = new Casa(j, i);
+                    casas[j][i].setBackground(Color.black);
+                }
+                add(casas[j][i]);
+                casas[j][i].setBounds((100 * i),(100 * j),95,95);
                 count++;
             }
         }
@@ -57,18 +58,18 @@ public class Tabuleiro extends JFrame
         {
             for(int j = 0; j < 8; j++)
             {
-                while(i < 2)
+                if(i < 3)
                 {
                     if(j%2 != 0 && i%2 == 0)
                     {
-                        Peao peca = new Peao();
+                        Peao peca = new Peao(j,i);
                         getCasa(j,i).setPeca(peca);
                         jogadorA.getPeca().add(peca);
                         ApecaIni++;
                     }
                     else if(j%2 == 0)
                     {
-                        Peao peca = new Peao();
+                        Peao peca = new Peao(j,i);
                         getCasa(j,i).setPeca(peca);
                         jogadorA.getPeca().add(peca);
                         ApecaIni++;
@@ -76,18 +77,18 @@ public class Tabuleiro extends JFrame
                                 
                 }
                 
-                while(i >= 5 && i < 8)
+                else if(i >= 5 && i < 8)
                 {
                     if(j%2 != 0 && i%2 == 0)
                     {
-                        Peao peca = new Peao();
+                        Peao peca = new Peao(j,i);
                         getCasa(j,i).setPeca(peca);
                         jogadorB.getPeca().add(peca);
                         BpecaIni++;
                     }
                     else if(j%2 == 0)
                     {
-                        Peao peca = new Peao();
+                        Peao peca = new Peao(j,i);
                         getCasa(j,i).setPeca(peca);
                         jogadorB.getPeca().add(peca);
                         BpecaIni++;
@@ -106,7 +107,7 @@ public class Tabuleiro extends JFrame
             {
                 if(getCasa(j,i).getcomPeca())
                 {
-                    getCasa(j,i).setIcon(new ImageIcon("./dama.imagens/pecapreta.png"));
+                    getCasa(i,j).setIcon(new ImageIcon("./imagens/pecapreta.png"));
                 }
             }
         }
@@ -114,11 +115,6 @@ public class Tabuleiro extends JFrame
     
     public Casa getCasa(int x,int y)
     {
-        for(Casa i : casas)
-        {
-            if(i.getX() == x && i.getY() == y)
-                return i;
-        }
-        return null;
+        return casas[x][y];
     }
 }

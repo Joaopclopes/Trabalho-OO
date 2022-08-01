@@ -28,6 +28,6 @@ public class Interface extends JFrame
     public static void main(String[] args) 
     {
         Interface jogo = new Interface();
-//        jogo.getTab().InicializaTabuleiro();
+        jogo.getTab().InicializaTabuleiro();
     }
 }

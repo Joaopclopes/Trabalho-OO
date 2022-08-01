@@ -17,29 +17,18 @@ public class Casa extends JButton
     boolean comPeca;
     Posicao posicao;
     Peca peca;
-    List<Casa> casass;
     
     public Posicao getPosicao(){return this.posicao;};
     public Peca    getPeca()   {return peca;};
     public boolean getcomPeca(){return comPeca;};
     
-    public Casa(int i,int j,List<Casa> casas)
+    public Casa(int i,int j)
     {
         posicao = new Posicao(i,j);
         comPeca = false;
         peca    = null;
-        casass  = casas;
     }
     
-    public Casa getCasa(int x,int y)
-    {
-        for(Casa i : casass)
-        {
-            if(i.getX() == x && i.getY() == y)
-                return i;
-        }
-        return null;
-    }
     
     public void setPeca(Peca pecaD)
     {
