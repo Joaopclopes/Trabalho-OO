@@ -88,10 +88,19 @@ public class Tabuleiro extends JFrame
         {
             for(int j = 0;j < 8;j++)
             {
-                if(getCasa(i,j).getcomPeca())
-                {
-                    getCasa(i,j).setIcon(new ImageIcon("./imagens/pecapreta.png"));
+                if(j < 3){
+                    if(getCasa(i,j).getcomPeca())
+                    {
+                        getCasa(i,j).setIcon(new ImageIcon("./imagens/pecapreta.png"));
+                    }                    
                 }
+                if(j >= 5 && j < 8){
+                    if(getCasa(i,j).getcomPeca())
+                    {
+                        getCasa(i,j).setIcon(new ImageIcon("./imagens/pecavermelha.png"));
+                    } 
+                }
+                
             }
         }
     }
