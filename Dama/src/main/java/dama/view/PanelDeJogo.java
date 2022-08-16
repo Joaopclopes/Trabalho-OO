@@ -76,7 +76,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 				} else if (tabuleiro[i][j] == damas.getVermelhas()) {
 					boton[i][j].setIcon(new ImageIcon("./imagens/PeaoVermelha.png"));
 				} else if (tabuleiro[i][j] == damas.getdamaV()) {
-					boton[i][j].setIcon(new ImageIcon("./imagens/DamaVermnelha.png"));
+					boton[i][j].setIcon(new ImageIcon("./imagens/DamaVermelha.png"));
 				} else if (tabuleiro[i][j] == damas.getdamaP()) {
 					boton[i][j].setIcon(new ImageIcon("./imagens/DamaPreto.png"));
 				} else if (tabuleiro[i][j] == damas.getPreenchimento()) {
@@ -95,7 +95,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 				} else if (damas.verdamas(i, j) == damas.getVermelhas()) {
 					boton[i][j].setIcon(new ImageIcon("./imagens/PeaoVermelha.png"));
 				} else if (damas.verdamas(i, j) == damas.getdamaV()) {
-					boton[i][j].setIcon(new ImageIcon("./imagens/DamaVermnelha.png"));
+					boton[i][j].setIcon(new ImageIcon("./imagens/DamaVermelha.png"));
 				} else if (damas.verdamas(i, j) == damas.getdamaP()) {
 					boton[i][j].setIcon(new ImageIcon("./imagens/DamaPreto.png"));
 				} else if (damas.verdamas(i, j) == damas.getPreenchimento()) {
@@ -156,20 +156,20 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		boolean pasa = false;
+		boolean passa = false;
 		for (int i = 0; i < boton.length; i++) {
 			for (int j = 0; j < boton[0].length; j++) {
 				if(e.getSource() == boton[i][j]) {
 					
 					if(vermelhas == 1 && pretas == 1) {
-						//Rojas:Automatico Vs Negras:Automatico
+						//Vermelhas:Automatico Vs Pretas:Automatico
 						
-						while(IA(pasa) == false) {
+						while(IA(passa) == false) {
 							
 						}
 						damas.MudaDeTurno();
 					}else if(vermelhas == 2 && pretas == 2) {
-						//Rojas:Manual Vs Negras:Manual
+						//Vermelhas:Manual Vs Pretas:Manual
 						if(damas.verificar_exitencia_de_peca(damas.getColor(), i, j)) {
 							x = i;
 							y = j;
@@ -184,7 +184,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 							contar--;
 						}
 					}else if(vermelhas == 1 && pretas == 2) {
-						//Rojas:Automatico Vs Negras:Manual
+						//Vermelhas:Automatico Vs Pretas:Manual
 						
 						if(damas.getColor() == 'N') {
 							if(damas.verificar_exitencia_de_peca(damas.getColor(), i, j)) {
@@ -201,7 +201,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 								contar--;
 							}
 						}else {
-							while(IA(pasa) == false) {
+							while(IA(passa) == false) {
 								
 							}
 							damas.MudaDeTurno();
@@ -209,7 +209,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 						
 						
 					}else if(vermelhas == 2 && pretas == 1) {
-						//Rojas:Manual Vs Negras:Automatico
+						//Vermelhas:Manual Vs Pretas:Automatico
 						
 						if(damas.getColor() == 'R') {
 							if(damas.verificar_exitencia_de_peca(damas.getColor(), i, j)) {
@@ -226,7 +226,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 								contar--;
 							}
 						}else {
-							while(IA(pasa) == false) {
+							while(IA(passa) == false) {
 								
 							}
 							damas.MudaDeTurno();

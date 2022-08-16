@@ -78,48 +78,12 @@ public class Damas {
 		}
 		return false;
 	}
-	
-	
-	public void imprimir(int contadorN, int contadorR, char color) {
-//		System.out.println();
-//		for (int i = 0; i < tabla.length; i++) {
-//			System.out.println("----------------------------------------");
-//			for (int j = 0; j < tabla[0].length; j++) {
-//				if (tabla[i][j] == rojas) {
-//					System.out.print(" R  |");
-//				} else if (tabla[i][j] == negras) {
-//					System.out.print(" N  |");
-//				} else if (tabla[i][j] == reinaR) {
-//					System.out.print(" RR |");
-//				} else if (tabla[i][j] == reinaN) {
-//					System.out.print(" RN |");
-//				} else if (tabla[i][j] == 5) {
-//					System.out.print("----|");
-//				} else if (i == 4 && j == 7) {
-//					System.out.print("    | Negras:");
-//				} else if (i == 5 && j == 7) {
-//					System.out.print("    | Rojas:");
-//				} else if (i == 3 && j == 7 && color == 'R') {
-//					System.out.print("    | Rojas");
-//				} else if (i == 3 && j == 7 && color == 'N') {
-//					System.out.print("    | Negras");
-//				} else {
-//					System.out.print("    |");
-//				}
-//				if (i == 2 && j == 7) {
-//					System.out.print(" Turno De:");
-//				}
-//			}
-//
-//			System.out.println();
-//		}
-	}
 
 	public void buscar_peca(int i,int j) {
 		if(tabela[i][j] == getPretas()) {
-			System.out.println("negra");
+			System.out.println("preta");
 		}else if(tabela[i][j] == getVermelhas()){
-			System.out.println("roja");
+			System.out.println("vermelha");
 		}
 	}
 	
@@ -136,20 +100,20 @@ public class Damas {
 	 * @param color
 	 */
 	public boolean jogar(char color, int x, int y, int x1, int y1) {
-		boolean pasa = false;
-		int variable, reina, enemigo, Renemiga;
+		boolean passa = false;
+		int variable, dama, inimigo, damainimiga;
 		if (color == 'R') {
-			enemigo = pretas;
-			Renemiga = damaP;
+			inimigo = pretas;
+			damainimiga = damaP;
 			variable = vermelhas;
-			reina = damaV;
+			dama = damaV;
 		} else {
-			Renemiga = damaP;
-			enemigo = vermelhas;
+			damainimiga = damaP;
+			inimigo = vermelhas;
 			variable = pretas;
-			reina = damaP;
+			dama = damaP;
 		}
-		while (pasa == false) {
+		while (passa == false) {
 			
 			if (tabela[x][y] == variable) {
 				if (y1 > -1 && x1 > -1 && y1 < 8 && x1 < 8) {
@@ -161,23 +125,23 @@ public class Damas {
 								if (y1 == y - 1 || y1 == y + 1) {
 									tabela[x][y] = 5;
 									tabela[x1][y1] = pretas;
-									pasa = true;
+									passa = true;
 								}
 							}
 							if (x1 == x - 2) {
 								if (y1 == y + 2) {
-									if (tabela[x - 1][y + 1] == enemigo || tabela[x - 1][y + 1] == Renemiga) {
+									if (tabela[x - 1][y + 1] == inimigo || tabela[x - 1][y + 1] == damainimiga) {
 										tabela[x - 1][y + 1] = 5;
 										tabela[x][y] = 5;
 										tabela[x1][y1] = pretas;
-										pasa = true;
+										passa = true;
 									}
 								} else if (y1 == y - 2) {
-									if (tabela[x - 1][y - 1] == enemigo || tabela[x - 1][y - 1] == Renemiga) {
+									if (tabela[x - 1][y - 1] == inimigo || tabela[x - 1][y - 1] == damainimiga) {
 										tabela[x - 1][y - 1] = 5;
 										tabela[x][y] = 5;
 										tabela[x1][y1] = pretas;
-										pasa = true;
+										passa = true;
 									}
 
 								}
@@ -188,23 +152,23 @@ public class Damas {
 								if (y1 == y - 1 || y1 == y + 1) {
 									tabela[x][y] = 5;
 									tabela[x1][y1] = vermelhas;
-									pasa = true;
+									passa = true;
 								}
 							}
 							if (x1 == x + 2) {
 								if (y1 == y + 2) {
-									if (tabela[x + 1][y + 1] == enemigo || tabela[x + 1][y + 1] == Renemiga) {
+									if (tabela[x + 1][y + 1] == inimigo || tabela[x + 1][y + 1] == damainimiga) {
 										tabela[x + 1][y + 1] = 5;
 										tabela[x][y] = 5;
 										tabela[x1][y1] = vermelhas;
-										pasa = true;
+										passa = true;
 									}
 								} else if (y1 == y - 2) {
-									if (tabela[x + 1][y - 1] == enemigo || tabela[x + 1][y - 1] == Renemiga) {
+									if (tabela[x + 1][y - 1] == inimigo || tabela[x + 1][y - 1] == damainimiga) {
 										tabela[x + 1][y - 1] = 5;
 										tabela[x][y] = 5;
 										tabela[x1][y1] = vermelhas;
-										pasa = true;
+										passa = true;
 									}
 
 								}
@@ -218,7 +182,7 @@ public class Damas {
 			} 
 			
 			
-			else if (tabela[x][y] == reina) {
+			else if (tabela[x][y] == dama) {
 				// movimiento reina
 				int menorx = 0, menory = 0;
 
@@ -237,11 +201,11 @@ public class Damas {
 							if (x > x1 && y > y1) {
 
 								for (int j2 = x, i2 = y; i2 >= y1 || j2 >= x1; j2--, i2--) {
-									if (tabela[j2][i2] == variable || tabela[j2][i2] == reina) {
+									if (tabela[j2][i2] == variable || tabela[j2][i2] == dama) {
 
 									} else {
 										tabela[j2][i2] = 5;
-										pasa = true;
+										passa = true;
 									}
 
 								}
@@ -249,13 +213,13 @@ public class Damas {
 
 								for (int j2 = x, i2 = y; i2 < y1 || j2 < x1; j2++, i2++) {
 									tabela[j2][i2] = 5;
-									pasa = true;
+									passa = true;
 								}
 							}
 
 							tabela[x][y] = 5;
-							tabela[x1][y1] = reina;
-							pasa = true;
+							tabela[x1][y1] = dama;
+							passa = true;
 						}
 					}
 					for (int i = x, j = y; i >= 0; i--, j++) {
@@ -267,29 +231,29 @@ public class Damas {
 							if (x < x1 && y > y1) {
 
 								for (int j2 = x, i2 = y; i2 >= y1 || j2 < x1; j2++, i2--) {
-									if (tabela[j2][i2] == variable || tabela[j2][i2] == reina) {
+									if (tabela[j2][i2] == variable || tabela[j2][i2] == dama) {
 
 									} else {
 										tabela[j2][i2] = 5;
-										pasa = true;
+										passa = true;
 									}
 								}
 							} else if (x > x1 && y < y1) {
 								for (int j2 = x, i2 = y; i2 < y1 || j2 >= x1; j2--, i2++) {
-									if (tabela[j2][i2] == variable || tabela[j2][i2] == reina) {
+									if (tabela[j2][i2] == variable || tabela[j2][i2] == dama) {
 
 									} else {
 										tabela[j2][i2] = 5;
-										pasa = true;
+										passa = true;
 									}
 								}
 							}
 							tabela[x][y] = 5;
-							tabela[x1][y1] = reina;
-							pasa = true;
+							tabela[x1][y1] = dama;
+							passa = true;
 						}
 					}
-					if (pasa == false) {
+					if (passa == false) {
 						 //JOptionPane.showMessageDialog(null, "movimiento invalido");
 					} else {
 						//JOptionPane.showMessageDialog(null, "movimiento hecho");
@@ -299,13 +263,13 @@ public class Damas {
 				}
 			} else {
 				 //JOptionPane.showMessageDialog(null, "ficha inesistente");
-				pasa = false;
+				passa = false;
 			}
-			if(pasa == false) {
+			if(passa == false) {
 				break;
 			}
 		}
-		return pasa;
+		return passa;
 	}
 
 	public boolean verificar(char color) {
@@ -319,7 +283,6 @@ public class Damas {
 				}
 			}
 		}
-		imprimir(contadorN, contadorR, color);
 		if (contadorN == 0 && contadorR > 0) {
 			JOptionPane.showMessageDialog(null, "vermelhas ganharam");
 			return true;
