@@ -139,7 +139,7 @@ public class PanelDeJogo extends JPanel implements ActionListener {
 		sele = new NovaPartida();
 		iniciar();
 		setLayout(new BorderLayout());
-		//setBorder(new CompoundBorder(new EmptyBorder(0, 0, 0, 0), new TitledBorder("juego")));
+		//setBorder(new CompoundBorder(new EmptyBorder(0, 0, 0, 0), new TitledBorder("jogo")));
 		setVisible(true);
 		alinear();
 		destribui_tabuleiro();

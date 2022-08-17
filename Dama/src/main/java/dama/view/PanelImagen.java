@@ -18,7 +18,7 @@ public class PanelImagen extends JPanel{
 		iniciar();
 		//47
 	    JLabel imagen = new JLabel( );
-        ImageIcon icono = new ImageIcon( "./imagenes/FondoInformacao.png" );
+        ImageIcon icono = new ImageIcon( "./imagens/FondoInformacao.png" );
         imagen = new JLabel( "" );
         imagen.setIcon( icono );
         imagen.setBounds(100,100,100,520);

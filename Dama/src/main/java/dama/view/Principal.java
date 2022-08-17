@@ -31,7 +31,7 @@ public class Principal extends JFrame{
 	public void alinear() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		panel.setBorder(new CompoundBorder(new EmptyBorder(0,0,0,0), new TitledBorder("Informacion")));
+		panel.setBorder(new CompoundBorder(new EmptyBorder(0,0,0,0), new TitledBorder("Informacao")));
 		panel.add(imagen);
 		
 		setLayout(new BorderLayout());
