@@ -49,11 +49,11 @@ public class AcercaDe extends JFrame {
 	}
 	
 	public void iniciar() {
-		label1 = new JLabel("Juego De Damas");
+		label1 = new JLabel("Jogo De Damas");
 		label1.setFont(new Font("1942 report", Font.CENTER_BASELINE, 18));
 		label2 = new JLabel("Version 2.2");
 		label2.setFont(new Font("1942 report", Font.CENTER_BASELINE, 13));
-		label3 = new JLabel("Fuentes:");
+		label3 = new JLabel("fontes:");
 		label2.setFont(new Font("1942 report", Font.CENTER_BASELINE, 13));
 		area = new JTextArea();
 		area.setEditable(false);

@@ -82,7 +82,7 @@ public class selecao_de_modo extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == boton1) {
 			if(combo1.getSelectedIndex() == 0 || combo2.getSelectedIndex() == 0) {
-				JOptionPane.showMessageDialog(principal,"Os vampos nao podem estar vazios");
+				JOptionPane.showMessageDialog(principal,"Os campos nao podem estar vazios");
 			}else {
 				panelDeJogo.trocar(combo1.getSelectedIndex(), combo2.getSelectedIndex());
 				dispose();

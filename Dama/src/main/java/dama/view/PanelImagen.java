@@ -18,7 +18,7 @@ public class PanelImagen extends JPanel{
 		iniciar();
 		//47
 	    JLabel imagen = new JLabel( );
-        ImageIcon icono = new ImageIcon( "./imagenes/FondoInformacion.png" );
+        ImageIcon icono = new ImageIcon( "./imagenes/FondoInformacao.png" );
         imagen = new JLabel( "" );
         imagen.setIcon( icono );
         imagen.setBounds(100,100,100,520);
@@ -26,17 +26,17 @@ public class PanelImagen extends JPanel{
 
 //		setLayout(new GridLayout(8, 0));
 //		JPanel panel = new JPanel();
-//		label.setText("                 nuevo juego                       ");
+//		label.setText("                 novo jogo                       ");
 //		cambiarlabel('N');
 	}
 	
 //	public void cambiarlabel(char color){
 //		
 //		if(color == 'R') {
-//			label.setText("             Turno de Las Rojas               ");
+//			label.setText("             vez das vermelhas               ");
 //			remove(label);
 //		}else if(color == 'N') {
-//			label.setText("             Turno de Las Negras              ");
+//			label.setText("             vez das pretas             ");
 //			remove(label);
 //		}
 //		
