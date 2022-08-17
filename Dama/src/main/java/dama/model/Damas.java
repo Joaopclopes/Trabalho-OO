@@ -1,8 +1,6 @@
 package dama.model;
 
-/* Kevin Rodrigo Guerrero Posso
- * esta madre fue un parcial
- */
+
 import javax.swing.JOptionPane;
 
 public class Damas {
