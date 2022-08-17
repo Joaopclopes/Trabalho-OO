@@ -187,9 +187,9 @@ public class Damas {
 				int menorx = 0, menory = 0;
 
 				if (x == x1 || y == y1) {
-					 //JOptionPane.showMessageDialog(null, "movimiento invalido por movimiento en vertical/horizontal");
+					 //JOptionPane.showMessageDialog(null, "movimento invalido por movimento em vertical/horizontal");
 				} else if (tabela[x1][y1] == variable) {
-					 //JOptionPane.showMessageDialog(null, "movimiento invalido por chocar con una ficha aliada");
+					 //JOptionPane.showMessageDialog(null, "movimento invalido por chocar com uma peca aliada");
 				} else if (tabela[x1][y1] == 5) {
 					for (int i = x, j = y; i >= 0 && j >= 0; i--, j--) {
 						menory = i;
@@ -254,15 +254,15 @@ public class Damas {
 						}
 					}
 					if (passa == false) {
-						 //JOptionPane.showMessageDialog(null, "movimiento invalido");
+						 //JOptionPane.showMessageDialog(null, "movimento invalido");
 					} else {
-						//JOptionPane.showMessageDialog(null, "movimiento hecho");
+						//JOptionPane.showMessageDialog(null, "movimento ");
 					}
 				} else {
-					 //JOptionPane.showMessageDialog(null, "tienes que pasar por encima de la ficha");
+					 //JOptionPane.showMessageDialog(null, "tem que passar por cima da peca");
 				}
 			} else {
-				 //JOptionPane.showMessageDialog(null, "ficha inesistente");
+				 //JOptionPane.showMessageDialog(null, "peca inexistente");
 				passa = false;
 			}
 			if(passa == false) {
