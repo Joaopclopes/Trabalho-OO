@@ -29,7 +29,7 @@ public class BarraFerramentas extends JPanel implements ActionListener{
 		novapartida = new JMenuItem("Nova partida");
 		trocar_modo = new JMenuItem("trocar Modo");
 		sair = new JMenuItem("Sair");
-		Sobre = new JMenuItem("Sobre de...");
+		
 		menu = new JMenu("Arquivo");
 		
 		menu.add(novapartida);
