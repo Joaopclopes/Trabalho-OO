@@ -7,7 +7,7 @@ public class Damas {
 
 	private int tabela[][];
 	private final int vermelhas = 1, pretas = 2, damaV = 3, damaP = 4, preenchimento = 5;
-	private char color = 'N';
+	private char color = 'P';
 	
 	public char getColor() {
 		return color;
@@ -29,10 +29,10 @@ public class Damas {
 	}
 	
 	public void MudaDeTurno() {
-		if(color == 'R') {
-			color = 'N';
-		}else if(color == 'N'){
-			color = 'R';
+		if(color == 'V') {
+			color = 'P';
+		}else if(color == 'P'){
+			color = 'V';
 		}
 	}
 	
@@ -65,11 +65,11 @@ public class Damas {
 
 	
 	public boolean verificar_exitencia_de_peca(char color, int x,int y) {
-		if(color == 'N') {
+		if(color == 'P') {
 			if(tabela[x][y] == pretas || tabela[x][y] == damaP) {
 				return true;
 			}
-		}else if(color == 'R'){
+		}else if(color == 'V'){
 			if(tabela[x][y] == vermelhas || tabela[x][y] == damaV) {
 				return true;
 			}
@@ -78,39 +78,7 @@ public class Damas {
 	}
 	
 	
-	public void imprimir(int contadorN, int contadorR, char color) {
-//		System.out.println();
-//		for (int i = 0; i < tabla.length; i++) {
-//			System.out.println("----------------------------------------");
-//			for (int j = 0; j < tabla[0].length; j++) {
-//				if (tabla[i][j] == rojas) {
-//					System.out.print(" R  |");
-//				} else if (tabla[i][j] == negras) {
-//					System.out.print(" N  |");
-//				} else if (tabla[i][j] == reinaR) {
-//					System.out.print(" RR |");
-//				} else if (tabla[i][j] == reinaN) {
-//					System.out.print(" RN |");
-//				} else if (tabla[i][j] == 5) {
-//					System.out.print("----|");
-//				} else if (i == 4 && j == 7) {
-//					System.out.print("    | Negras:");
-//				} else if (i == 5 && j == 7) {
-//					System.out.print("    | Rojas:");
-//				} else if (i == 3 && j == 7 && color == 'R') {
-//					System.out.print("    | Rojas");
-//				} else if (i == 3 && j == 7 && color == 'N') {
-//					System.out.print("    | Negras");
-//				} else {
-//					System.out.print("    |");
-//				}
-//				if (i == 2 && j == 7) {
-//					System.out.print(" Turno De:");
-//				}
-//			}
-//
-//			System.out.println();
-//		}
+	public void imprimir(int contadorP, int contadorV, char color) {
 	}
 
 	public void buscar_peca(int i,int j) {
@@ -136,7 +104,7 @@ public class Damas {
 	public boolean jogar(char color, int x, int y, int x1, int y1) {
 		boolean pasa = false;
 		int variavel, dama, inimigo, dama_inimiga;
-		if (color == 'R') {
+		if (color == 'V') {
 			inimigo = pretas;
 			dama_inimiga = damaP;
 			variavel = vermelhas;
@@ -307,21 +275,21 @@ public class Damas {
 	}
 
 	public boolean verificar(char color) {
-		int contadorN = 0, contadorR = 0;
+		int contadorP = 0, contadorV = 0;
 		for (int i = 0; i < tabela.length; i++) {
 			for (int j = 0; j < tabela[0].length; j++) {
 				if (tabela[i][j] == vermelhas || tabela[i][j] == damaV) {
-					contadorR++;
+					contadorV++;
 				} else if (tabela[i][j] == pretas || tabela[i][j] == damaP) {
-					contadorN++;
+					contadorP++;
 				}
 			}
 		}
-		imprimir(contadorN, contadorR, color);
-		if (contadorN == 0 && contadorR > 0) {
+		imprimir(contadorP, contadorV, color);
+		if (contadorP == 0 && contadorV > 0) {
 			JOptionPane.showMessageDialog(null, "vermelhas ganharam");
 			return true;
-		} else if (contadorR == 0 && contadorN > 0) {
+		} else if (contadorV == 0 && contadorP > 0) {
 			JOptionPane.showMessageDialog(null, "pretas ganharam");
 			return true;
 		}
