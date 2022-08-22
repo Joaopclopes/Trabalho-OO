@@ -186,7 +186,7 @@ public class Painel_de_Jogo extends JPanel implements ActionListener {
 					}else if(vermelhas == 1 && pretas == 2) {
 						//Vermelhas:Automatico Vs Pretas:Manual
 						
-						if(damas.getColor() == 'N') {
+						if(damas.getColor() == 'P') {
 							if(damas.verificar_exitencia_de_peca(damas.getColor(), i, j)) {
 								x = i;
 								y = j;
@@ -211,7 +211,7 @@ public class Painel_de_Jogo extends JPanel implements ActionListener {
 					}else if(vermelhas == 2 && pretas == 1) {
 						//Vermelhas:Manual Vs Pretas:Automatico
 						
-						if(damas.getColor() == 'R') {
+						if(damas.getColor() == 'V') {
 							if(damas.verificar_exitencia_de_peca(damas.getColor(), i, j)) {
 								x = i;
 								y = j;
